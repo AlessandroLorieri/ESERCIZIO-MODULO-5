@@ -1,0 +1,24 @@
+.borderBook {
+    cursor: pointer;
+    transition: border 0.15s ease;
+}
+
+.borderBook.selected {
+    border: 3px solid red;
+}
+
+.bookImg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.bookImgWrapper {
+    aspect-ratio: 2 / 3;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

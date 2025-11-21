@@ -1,33 +1,39 @@
 import Container from 'react-bootstrap/Container'
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Card from "react-bootstrap/Card"
+import { useState } from 'react'
 
 import books from "../../data/books.json"
+import SingleBook from '../SingleBook/SingleBook'
 
-const AllTheBooks = () => (
-    <Container className='mt-4'>
-        <Row className='gx-3 gy-5'>
-            {books.map(book => (
-                <Col key={book.asin} xs={12} md={6} lg={3}>
-                    <Card className='h-100'>
+const AllTheBooks = () => {
+    const [search, setSearch] = useState("")
 
-                        <Card.Img variant='top' src={book.img} alt={book.title} />
+    const filteredBooks = books.filter((book) =>
+        book.title.toLowerCase().includes(search.toLowerCase())
+    );
+    return (
+        <Container className='mt-4'>
 
-                        <Card.Body>
+            <div className='mb-3'>
+                <input
+                    type='text'
+                    className='form-control'
+                    placeholder='Cerca per titolo...'
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+            </div>
 
-                            <Card.Title className='fs-5 text-center'>{book.title}</Card.Title>
-
-                            <Card.Text className='mb-0 fw-bold text-center' >{book.price} €</Card.Text>
-
-                        </Card.Body>
-
-                    </Card>
-
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
+            <Row className='gx-3 gy-5'>
+                {filteredBooks.map(book => (
+                    <Col key={book.asin} xs={12} md={6} lg={3}>
+                        <SingleBook book={book} />
+                    </Col>
+                ))}
+            </Row>
+        </Container>
+    )
+}
 
 export default AllTheBooks
