@@ -1,0 +1,113 @@
+.add-comment {
+    border-top: 1px solid #dee2e6;
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.add-comment h6 {
+    margin-bottom: 0.5rem;
+}
+
+.add-comment div {
+    margin-bottom: 0.5rem;
+}
+
+.add-comment textarea {
+    width: 100%;
+    min-height: 60px;
+    resize: vertical;
+    font-size: 0.85rem;
+    padding: 0.4rem;
+}
+
+.add-comment select {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.4rem;
+}
+
+.add-comment button {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+}
+
+/* Messaggio di errore nel form */
+.add-comment-error {
+    color: #b3261e;
+    margin-bottom: 0.25rem;
+}
+
+.add-comment {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e3e3e3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.add-comment h6 {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* campi del form */
+.add-comment textarea,
+.add-comment select {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.add-comment textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.add-comment textarea:focus,
+.add-comment select:focus {
+    border-color: #7b5cff;
+    box-shadow: 0 0 0 2px rgba(123, 92, 255, 0.2);
+}
+
+/* errore */
+.add-comment-error {
+    font-size: 0.8rem;
+    color: #dc3545;
+    margin: 0;
+}
+
+/* bottone "Invia recensione" */
+.add-comment-btn {
+    align-self: flex-end;
+    margin-top: 0.25rem;
+    border: none;
+    border-radius: 999px;
+    padding: 0.35rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(135deg, #7b5cff, #29c7d8);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition:
+        background 0.15s ease,
+        transform 0.1s ease,
+        box-shadow 0.15s ease,
+        opacity 0.1s ease;
+}
+
+.add-comment-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-comment-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
