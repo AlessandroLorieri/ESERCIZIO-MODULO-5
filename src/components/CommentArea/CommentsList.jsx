@@ -1,11 +1,5 @@
 
-// PROPS:
-// - comments: array di recensioni
-//
-// COSA FA:
-// - renderizza una <ul>
-// - fa .map() su comments
-// - per ogni recensione renderizza <SingleComment comment={recensione} />
+
 
 import SingleComment from "./SingleComment";
 import "./CommentsList.css"

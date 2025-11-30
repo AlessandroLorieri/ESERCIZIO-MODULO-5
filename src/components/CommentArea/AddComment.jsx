@@ -1,16 +1,4 @@
 
-// PROPS:
-// - asin: libro a cui associare la recensione
-// - onCommentAdded: funzione chiamata DOPO una POST riuscita
-//
-// COSA FA:
-// - mostra un form (textarea + select voto)
-// - gestisce lo stato del form (comment, rate, isSubmitting, error)
-// - alla submit fa una POST a /api/comments
-// - se va tutto bene:
-//   - resetta il form
-//   - chiama onCommentAdded(savedComment)
-
 import { useState } from "react"
 import "./AddComment.css"
 

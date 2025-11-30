@@ -30,7 +30,7 @@
     padding: 0.25rem 0.75rem;
 }
 
-/* Messaggio di errore nel form */
+
 .add-comment-error {
     color: #b3261e;
     margin-bottom: 0.25rem;
@@ -50,7 +50,6 @@
     margin: 0;
 }
 
-/* campi del form */
 .add-comment textarea,
 .add-comment select {
     width: 100%;
@@ -73,14 +72,12 @@
     box-shadow: 0 0 0 2px rgba(123, 92, 255, 0.2);
 }
 
-/* errore */
 .add-comment-error {
     font-size: 0.8rem;
     color: #dc3545;
     margin: 0;
 }
 
-/* bottone "Invia recensione" */
 .add-comment-btn {
     align-self: flex-end;
     margin-top: 0.25rem;

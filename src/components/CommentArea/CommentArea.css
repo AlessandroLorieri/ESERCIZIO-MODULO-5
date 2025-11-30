@@ -1,4 +1,4 @@
-/* Contenitore generale dell'area commenti */
+
 .comment-area {
     margin-top: 0.75rem;
     padding: 0.75rem;
@@ -8,7 +8,6 @@
     font-size: 0.9rem;
 }
 
-/* Titolo & info ASIN */
 .comment-area h5 {
     margin-bottom: 0.25rem;
 }

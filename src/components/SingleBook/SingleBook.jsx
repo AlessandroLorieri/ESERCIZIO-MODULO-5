@@ -1,8 +1,4 @@
 
-// - Mostra la card di UN libro (titolo + immagine)
-// - Gestisce lo stato selected (true/false) per il bordo rosso
-// - Quando selected è true, mostra <CommentArea asin={book.asin} />
-
 
 import Card from 'react-bootstrap/Card'
 import { useState } from 'react'

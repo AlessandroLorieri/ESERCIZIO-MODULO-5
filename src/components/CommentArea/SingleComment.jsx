@@ -1,11 +1,4 @@
 
-// PROPS:
-// - comment: oggetto recensione (comment, rate, _id, ecc.)
-//
-// COSA FA:
-// - mostra il testo della recensione
-// - mostra il voto
-
 import { useState } from "react";
 import "./SingleComment.css"
 

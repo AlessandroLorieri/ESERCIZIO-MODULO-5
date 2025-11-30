@@ -1,15 +1,4 @@
 
-// PROPS:
-// - asin: codice del libro selezionato
-//
-// COSA FA:
-// - fa la fetch delle recensioni da Strive API usando asin
-// - gestisce gli stati: comments, isLoading, error
-// - mostra messaggi di loading / errore / nessuna recensione
-// - se ci sono commenti => <CommentsList comments={comments} />
-// - mostra anche <AddComment asin={asin} onCommentAdded={...} />
-
-
 import { useEffect, useState } from "react"
 import CommentsList from "./CommentsList"
 import AddComment from "./AddComment"

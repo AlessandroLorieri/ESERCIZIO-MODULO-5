@@ -1,9 +1,3 @@
-// - Riceve l'array di libri (es. fantasy.json)
-// - Fa .map() sui libri
-// - Per ogni libro renderizza <SingleBook book={libro} />
-
-
-
 
 import Container from 'react-bootstrap/Container'
 import Row from "react-bootstrap/Row"
@@ -13,7 +7,7 @@ import { useState, useEffect } from 'react'
 import booksData from "../../data/books.json"
 import SingleBook from '../SingleBook/SingleBook'
 
-const AllTheBooks = () => {
+const AllTheBooks = ({ searchQuery }) => {
     const [books, setBooks] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -25,7 +19,7 @@ const AllTheBooks = () => {
     }, [])
 
     const filteredBooks = books.filter(book =>
-        book.title.toLowerCase().includes(search.toLowerCase())
+        book.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     if (isLoading) {
@@ -42,26 +36,20 @@ const AllTheBooks = () => {
 
     return (
         <Container className='mt-4'>
+            {filteredBooks.length === 0 ? (
+                <p className='text-center mt-5 mb-0 text-danger'>
+                    Nessun libro trovato {searchQuery ? `per "${searchQuery}"` : ""}.
+                </p>
+            ) : (
 
-            <Row className='mb-3'>
-                <Col>
-                    <input
-                        type='text'
-                        className='form-control'
-                        placeholder='Cerca per titolo...'
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                </Col>
-            </Row>
-
-            <Row className='gx-3 gy-5'>
-                {filteredBooks.map(book => (
-                    <Col key={book.asin} xs={12} md={6} lg={4} xl={3}>
-                        <SingleBook book={book} />
-                    </Col>
-                ))}
-            </Row>
+                <Row className='gx-3 gy-5'>
+                    {filteredBooks.map(book => (
+                        <Col key={book.asin} xs={12} md={6} lg={4} xl={3}>
+                            <SingleBook book={book} />
+                        </Col>
+                    ))}
+                </Row>
+            )}
         </Container>
     )
 }

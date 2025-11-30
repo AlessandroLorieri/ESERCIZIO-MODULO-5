@@ -15,7 +15,6 @@
     color: #666;
 }
 
-/* Bottoni dentro il commento */
 .single-comment button {
     margin-right: 0.5rem;
     margin-top: 0.25rem;
@@ -23,7 +22,6 @@
     padding: 0.15rem 0.5rem;
 }
 
-/* Messaggi di errore dentro SingleComment */
 .single-comment p.error {
     color: #b3261e;
     margin-top: 0.25rem;
@@ -41,7 +39,6 @@
     border: 1px solid #e0e0e0;
 }
 
-/* Testo del commento */
 .single-comment-text {
     flex: 1;
 }
@@ -56,7 +53,6 @@
     color: #6c757d;
 }
 
-/* Azioni (modifica / elimina / salva / annulla) */
 .single-comment-actions {
     display: flex;
     flex-direction: column;
@@ -69,7 +65,6 @@
     color: #dc3545;
 }
 
-/* Bottoni icona generici */
 .icon-btn {
     border: none;
     background: transparent;
@@ -83,7 +78,6 @@
     transition: 0.15s ease, transform 0.1s ease;
 }
 
-/* Modifica */
 .icon-btn.edit-btn {
     color: #0d6efd;
 }
@@ -93,7 +87,6 @@
     transform: translateY(-1px);
 }
 
-/* Salva */
 .icon-btn.save-btn {
     color: #198754;
 }
@@ -103,7 +96,6 @@
     transform: translateY(-1px);
 }
 
-/* Annulla */
 .icon-btn.cancel-btn {
     color: #6c757d;
 }
@@ -113,7 +105,6 @@
     transform: translateY(-1px);
 }
 
-/* Elimina */
 .icon-btn.delete-btn {
     color: #dc3545;
 }
@@ -123,7 +114,6 @@
     transform: translateY(-1px);
 }
 
-/* Disabled */
 .icon-btn:disabled {
     opacity: 0.5;
     cursor: default;
