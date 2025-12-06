@@ -1,31 +1,49 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import AllTheBooks from "./components/AllTheBooks/AllTheBooks"
-import MyFooter from "./components/MyFooter/MyFooter"
-import MyNav from "./components/MyNav/MyNav"
-import Welcome from "./components/Welcome/Welcome"
-import { useState, useContext } from 'react'
-import { ThemeContext } from './components/ThemeContext/ThemeContext'
+// App.jsx
+import "bootstrap/dist/css/bootstrap.min.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useState } from "react"
 
+import AppLayout from "./components/AppLayout/AppLayout"
+import HomePage from "./pages/HomePage"
+import BookDetails from "./pages/BookDetails"
 
 
 const App = () => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const {theme} = useContext(ThemeContext)
+  const [searchQuery, setSearchQuery] = useState("")
 
   return (
-    <div className={`app app-${theme}`}>
-      <MyNav
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-      />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          element={
+            <AppLayout
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+            />
+          }
+        >
+          <Route
+            path="/"
+            element={<HomePage searchQuery={searchQuery} />}
+          />
 
-      <Welcome />
+          <Route
+            path="book/:asin"
+            element={<BookDetails />} />
 
-      <AllTheBooks
-        searchQuery={searchQuery}/>
+          <Route
+            path="*"
+            element={
+              <div className="p-5 text-center">
+                <h2>404</h2>
+                <p>Pagina non trovata.</p>
+              </div>
+            }
+          />
 
-      <MyFooter />
-    </div>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

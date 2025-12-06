@@ -1,17 +1,24 @@
 
 
 import Card from 'react-bootstrap/Card'
-import { useState } from 'react'
-import './SingleBook.css'
-import CommentArea from '../CommentArea/CommentArea'
+import Button from "react-bootstrap/Button"
+import { useNavigate } from "react-router-dom"
 
-const SingleBook = ({ book }) => {
-    const [selected, setSelected] = useState(false)
+import './SingleBook.css'
+
+
+const SingleBook = ({ book, isSelected, onBookClick }) => {
+    const navigate = useNavigate()
+
+    const handleDetailsClick = (event) => {
+        event.stopPropagation()
+        navigate(`/book/${book.asin}`)
+    }
 
     return (
         <Card
-            className={`h-100 borderBook ${selected ? "selected" : ""}`}
-            onClick={() => setSelected(!selected)}
+            className={`h-100 borderBook ${isSelected ? "selected" : ""}`}
+            onClick={onBookClick}
         >
             <div className='bookImgWrapper'>
                 <Card.Img variant='top'
@@ -33,8 +40,19 @@ const SingleBook = ({ book }) => {
                 <Card.Text className='text-center pt-4 fw-bold'>
                     {book.price} €
                 </Card.Text>
+
+                <div className="d-flex justify-content-center mt-2">
+                    <Button
+                        className='px-4'
+                        variant="outline-primary"
+                        size="sm"
+                        onClick={handleDetailsClick}
+                    >
+                        Dettagli
+                    </Button>
+                </div>
+
             </Card.Body>
-            {selected && <CommentArea asin={book.asin} />}
         </Card>
     )
 }

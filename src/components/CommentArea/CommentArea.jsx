@@ -25,14 +25,23 @@ const CommentArea = ({ asin }) => {
         )
     }
 
-    const HandleCommentAdded = (newComment) => {
+    const handleCommentAdded = (newComment) => {
         setComments((prevComments) => [...prevComments, newComment])
     }
 
     useEffect(() => {
+
+        if (!asin) {
+            setComments([])
+            setError(null)
+            setIsLoading(false)
+            return
+        }
+
         const fetchComments = async () => {
             setIsLoading(true)
             setError(null)
+
 
             try {
                 const response = await fetch(
@@ -57,39 +66,49 @@ const CommentArea = ({ asin }) => {
             }
         }
 
-        if (asin) {
-            fetchComments()
-        }
+        fetchComments()
     }, [asin])
 
-    return (
-        <div className="comment-area"
-            onClick={(event) => event.stopPropagation()}
-        >
-            <h5>Recensioni per il libro</h5>
-            <p>ASIN: {asin}</p>
+        if (!asin) {
+            return(
+                <div className="comment-area">
+                    <h5>Recensioni</h5>
+                    <p className="text-muted mb-0">
+                        Seleziona un libro per vedere o aggiungere recensioni.
+                    </p>
+                </div>
+            )
+        }
 
-            {isLoading && <p>Caricamento Recensioni...</p>}
+            return (
+                <div className="comment-area"
+                    onClick={(event) => event.stopPropagation()}
+                >
+                    <h5>Recensioni per il libro</h5>
+                    <p>ASIN: {asin}</p>
 
-            {error && <p>Errore:{error}</p>}
+                    {isLoading && <p>Caricamento Recensioni...</p>}
 
-            {!isLoading && !error && comments.length === 0 && (
-                <p>Ancora nessuna Recensione</p>
-            )}
+                    {error && <p>Errore:{error}</p>}
 
-            {!isLoading && !error && comments.length > 0 && (
-                <CommentsList comments={comments}
-                    onDeleteComment={handleCommentDelete}
-                    onEditComment={handleCommentEdited}
-                />
-            )}
+                    {!isLoading && !error && comments.length === 0 && (
+                        <p>Ancora nessuna Recensione</p>
+                    )}
 
-            {!isLoading && !error && (
-                <AddComment asin={asin} onCommentAdded={HandleCommentAdded} />
-            )}
+                    {!isLoading && !error && comments.length > 0 && (
+                        <CommentsList comments={comments}
+                            onDeleteComment={handleCommentDelete}
+                            onEditComment={handleCommentEdited}
+                        />
+                    )}
 
-        </div>
-    )
-}
+                    {!isLoading && !error && (
+                        <AddComment asin={asin} onCommentAdded={handleCommentAdded} />
+                    )}
 
-export default CommentArea
+                </div>
+            )
+        }
+    
+
+        export default CommentArea
