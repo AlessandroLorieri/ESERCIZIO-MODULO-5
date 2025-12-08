@@ -96,7 +96,8 @@ const SingleComment = ({ comment, onDelete, onEdit }) => {
     };
 
     return (
-        <li className="single-comment">
+        <li className="single-comment"
+            data-testid="single-comment">
             {isEditing ? (
                 <>
                     <textarea

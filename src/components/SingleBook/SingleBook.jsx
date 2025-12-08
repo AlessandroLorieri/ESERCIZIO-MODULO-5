@@ -17,6 +17,7 @@ const SingleBook = ({ book, isSelected, onBookClick }) => {
 
     return (
         <Card
+            data-testId="book-card"
             className={`h-100 borderBook ${isSelected ? "selected" : ""}`}
             onClick={onBookClick}
         >
